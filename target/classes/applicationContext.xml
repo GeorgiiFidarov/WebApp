@@ -15,7 +15,10 @@
     </bean>
     <bean id="rock" class="ru.fidarov.spring.RockMusic">
     </bean>
-    <bean id="musicPlayer" class="ru.fidarov.spring.MusicPlayer">
+    <bean id="musicPlayer" class="ru.fidarov.spring.MusicPlayer"
+    scope="prototype">
+        <property name="volume" value="${musicPlayer.volume}"/>
+        <property name="name" value="${musicPlayer.name}"/>
         <property name="musicList">
             <list>
                 <ref bean="classical"/>
