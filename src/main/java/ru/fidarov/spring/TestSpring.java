@@ -5,8 +5,11 @@ public class TestSpring {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml"
         );
+        Computer computer = context.getBean("computer", Computer.class);
         MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-        musicPlayer.playMusic();
+        musicPlayer.playMusic(Genre.CLASSICAL);
+
+        System.out.println(computer);
         context.close();
 
         //создали бин классической музыки

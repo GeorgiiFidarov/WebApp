@@ -1,29 +1,37 @@
 package ru.fidarov.spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import java.net.MulticastSocket;
-import java.util.ArrayList;
-import java.util.List;
 
 @Component//создать бин из этого класса
 public class MusicPlayer{
     private ClassicalMusic classicalMusic;
-    private RockMusic rockMusic;
     private RapMusic rapMusic;
+    private RockMusic rockMusic;
     @Autowired
-    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic,RapMusic rapMusic) {
+    public MusicPlayer(ClassicalMusic classicalMusic, RapMusic rapMusic, RockMusic rockMusic) {
         this.classicalMusic = classicalMusic;
-        this.rockMusic = rockMusic;
         this.rapMusic = rapMusic;
+        this.rockMusic = rockMusic;
     }
-    private Music music;//реализуем интерфейс как поле
+    //реализуем интерфейс как поле
     //IOC
     //внедряет зависимость через конструктор другой класс
-    public void playMusic() {
-        System.out.println("Playing: " + classicalMusic.getSong());
-        System.out.println("Playing: " + rockMusic.getSong());
-        System.out.println("Playing: " + rapMusic.getSong());
+    public void playMusic(Genre genre) {
+        switch(genre){
+            case ROCK:
+                System.out.println(rockMusic.getSong());
+                break;
+            case RAP:
+                System.out.println(rapMusic.getSong());
+                break;
+            case CLASSICAL:
+                System.out.println(classicalMusic.getSong());
+                break;
+        }
     }
+
+
 }
