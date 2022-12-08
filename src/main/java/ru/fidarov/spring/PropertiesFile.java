@@ -23,9 +23,6 @@ public class PropertiesFile {
         return new RapMusic();
     }
     @Bean
-    public List<RapMusic>
-
-    @Bean
     public MusicPlayer musicPlayer(){
         return new MusicPlayer(rockMusic(),rapMusic(),classicalMusic());
     }
