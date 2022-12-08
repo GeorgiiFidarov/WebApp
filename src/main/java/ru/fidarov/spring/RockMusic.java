@@ -8,9 +8,11 @@ import java.util.Random;
 
 import static java.util.Arrays.asList;
 
-@Component
 public class RockMusic implements Music{
-    private List<String> rockSongs = new ArrayList<>(asList("Master of Puppets", "Symphony of distraction","Numb"));
+    private List<String> rockSongs = new ArrayList<>(asList(
+            "Master of Puppets",
+            "Symphony of distraction",
+            "Numb"));
     @Override
     public String getSong() {
         Random random = new Random();

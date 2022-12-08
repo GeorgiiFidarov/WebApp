@@ -7,8 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 import static java.util.Arrays.asList;
-
-@Component //создаёт нам наш бин.
+ //создаёт нам наш бин.
 public class RapMusic implements Music {
     private List<String> rapSongs = new ArrayList<>(asList("Rap God", "Good day","Big poopa"));
     @Override

@@ -2,36 +2,49 @@ package ru.fidarov.spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
-@Component//создать бин из этого класса
+import static java.util.Arrays.asList;
+
+
+//создать бин из этого класса
 public class MusicPlayer{
-    private ClassicalMusic classicalMusic;
-    private RapMusic rapMusic;
-    private RockMusic rockMusic;
-    @Autowired
-    public MusicPlayer(ClassicalMusic classicalMusic, RapMusic rapMusic, RockMusic rockMusic) {
-        this.classicalMusic = classicalMusic;
-        this.rapMusic = rapMusic;
-        this.rockMusic = rockMusic;
+    public List<ClassicalMusic>listOfGenres;
+
+
+
+    public MusicPlayer(List<ClassicalMusic> listOfGenres) {
+        this.listOfGenres = listOfGenres;
     }
     //реализуем интерфейс как поле
     //IOC
     //внедряет зависимость через конструктор другой класс
-    public void playMusic(Genre genre) {
-        switch(genre){
-            case ROCK:
-                System.out.println(rockMusic.getSong());
-                break;
-            case RAP:
-                System.out.println(rapMusic.getSong());
-                break;
-            case CLASSICAL:
-                System.out.println(classicalMusic.getSong());
-                break;
+    public void playMusic(List<Genre> listOfGenres) {
+        Random random = new Random();
+        RockMusic rockMusic = new RockMusic();
+        Genre g = listOfGenres.get(random.nextInt(listOfGenres.size()));
+        if (g == Genre.RAP){
+            System.out.println(rockMusic.getSong());
         }
+//        switch(g){
+//            case ROCK:
+//                System.out.println(RockMusic.getSong()+" ");
+//                break;
+//            case RAP:
+//                System.out.println(RapMusic.getSong()+" ");
+//                break;
+//            case CLASSICAL:
+//                System.out.println(ClassicalMusic.getSong()+" ");
+//                break;
+//        }
     }
-
-
+    public List<Genre> getListOfGenres() {
+        return listOfGenres;
+    }
 }
