@@ -20,6 +20,6 @@ public class RockMusic implements Music{
     }
     @Override
     public String toString() {
-        return rockSongs+"";
+        return rockSongs+""+getClass();
     }
 }

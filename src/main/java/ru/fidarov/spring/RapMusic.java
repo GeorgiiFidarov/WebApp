@@ -17,6 +17,6 @@ public class RapMusic implements Music {
     }
     @Override
     public String toString() {
-        return rapSongs+"";
+        return rapSongs+""+getClass();
     }
 }

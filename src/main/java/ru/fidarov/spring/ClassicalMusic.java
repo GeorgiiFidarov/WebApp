@@ -22,6 +22,6 @@ public class ClassicalMusic implements Music{
     }
     @Override
     public String toString() {
-        return classicSongs+" ";
+        return classicSongs+""+getClass();
     }
 }

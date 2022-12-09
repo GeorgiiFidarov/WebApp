@@ -27,33 +27,15 @@ import static java.util.Arrays.asList;
 
 //создать бин из этого класса
 public class MusicPlayer{
-    public List<ClassicalMusic>listOfGenres;
-    public MusicPlayer(List<ClassicalMusic> listOfGenres) {
+    public List<Music>listOfGenres;
+    public MusicPlayer(List<Music> listOfGenres) {
         this.listOfGenres = listOfGenres;
     }
     //реализуем интерфейс как поле
     //IOC
     //внедряет зависимость через конструктор другой класс
-    public void playMusic(List<Genre> listOfGenres) {
+    public void playMusic() {
         Random random = new Random();
-        RockMusic rockMusic = new RockMusic();
-        Genre g = listOfGenres.get(random.nextInt(listOfGenres.size()));
-        if (g == Genre.RAP){
-            System.out.println(rockMusic.getSong());
-        }
-//        switch(g){
-//            case ROCK:
-//                System.out.println(RockMusic.getSong()+" ");
-//                break;
-//            case RAP:
-//                System.out.println(RapMusic.getSong()+" ");
-//                break;
-//            case CLASSICAL:
-//                System.out.println(ClassicalMusic.getSong()+" ");
-//                break;
-//        }
-    }
-    public List<Genre> getListOfGenres() {
-        return listOfGenres;
+        System.out.println(listOfGenres.get(random.nextInt(listOfGenres.size())).getSong());
     }
 }
